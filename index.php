@@ -51,6 +51,18 @@ $caracteres = "abcedfgh0123456789";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .cercle{
+            height: 20px;
+            width: 20px;
+            background-color: green;
+            border-radius: 50%;
+        }
+        .rouge{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>le titre de l'exercice</h1>
@@ -58,6 +70,92 @@ $caracteres = "abcedfgh0123456789";
 
 <p>Resultat : <?php echo $resultat ; ?></p>
 
+
+<h2>table 1</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>couleur</th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php
+            foreach($tableau as $couleur){
+
+                echo "<tr><td>$couleur</td></tr>";
+
+            }
+        ?>
+    </tbody>
+</table>
+
+
+<h2>table 2 : couleurs vérifiées</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>couleur</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach($tableau2 as $couleur){
+        if(in_array($couleur,$tableau)){
+            echo "<tr><td>$couleur</td></tr>";
+
+        }    }
+    ?>
+    </tbody>
+</table>
+
+<h2>table 3 animaux</h2>
+<table class="table">
+    <thead>
+    <tr>
+       <th>animal</th> <th>couleur</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <?php
+    foreach($animaux as $animal=>$couleur){
+
+
+
+
+            echo "<tr><td>$animal</td><td>$couleur</td></tr>";
+
+         }
+    ?>
+    </tbody>
+</table>
+<h2>table 3 animaux dangereux</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>animal</th> <th>couleur</th> <th>danger</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <?php
+    foreach($animaux2 as $animal=>$couleur){
+
+        $classeCouleur = "";
+        if(in_array($animal, $animauxDangereux)){
+
+            $classeCouleur = "rouge";
+        }
+
+
+        echo "<tr><td>$animal</td><td>$couleur</td><td><div class='cercle $classeCouleur'></div></td></tr>";
+
+    }
+    ?>
+    </tbody>
+</table>
 </body>
 </html>
 
